@@ -1,5 +1,5 @@
-# GitFav
-The idea now is to create the front-end of the application RocketMovie
+# RocketMovies
+The idea now is to create the front-end of the application RocketMovies
 # Technologies used
 react
 # Layout
