@@ -1,27 +1,18 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.button`
   width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.ROSE};
-  color: ${({ theme }) => theme.COLORS.BUTTON};
-
+  background-color: ${({ theme }) => theme.COLORS.PINK};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  
   height: 56px;
   border: 0;
   padding: 0 16px;
-
+  margin-top: 16px;
   border-radius: 10px;
   font-weight: 500;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  > svg {
-    margin-left: 12px;
-  }
-
+  
   &:disabled {
     opacity: 0.5;
   }
-
 `;

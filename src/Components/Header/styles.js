@@ -1,62 +1,75 @@
-import styled from 'styled-components'
-import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
-grid-area: header;
+  grid-area: header;
 
-height: 116px;
-width: 100%;
+  height: 116px;
+  width: 100%;
 
-border-bottom-width: 1px;
-border-bottom-style: solid;
-border-bottom-color: ${({theme}) => theme.COLORS.BORDA};
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 0 123px;
 
-display: flex;
-align-items: center;
-justify-content: space-between;
+  position: relative;
+`;
 
-padding: 30px 123px;
+export const Brand = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-> h1 {
-    color: ${({ theme }) => theme.COLORS.ROSE};
-    font-weight: 700;
+  > h1 {
     font-size: 24px;
-    line-height: 32px;
-    margin-right: 64px;
-}
+    color: ${({ theme }) => theme.COLORS.PINK};
+  }
+`;
+
+export const Search = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+  flex-grow: 1;
 `;
 
 export const Profile = styled(Link)`
   display: flex;
   align-items: center;
-  margin-left: 30px;
 
- > img {
-    weight: 56px;
-    width: 56px;
+  > img {
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
- } 
-
- > div {
-    display: flex;
-    flex-direction: column;
-    margin-right: 9px;
-    line-height: 24px;
-    align-items: flex-end;
-    margin-left: 64px;
-
-   span {
-    font-size: 14px;
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    white-space: nowrap;
-    }
-   
-   strong {
-    font-size: 18px;
-    color: ${({ theme }) => theme.COLORS.WHITE};
-    white-space: nowrap;
-   } 
-
   }
+
+  > div {
+    margin-right: 9px;
+    font-size: 14px;
+    line-height: 18px;
+
+    height: 40px;
+
+    strong {
+      color: ${({ theme }) => theme.COLORS.WHITE};
+    }
+  }
+`;
+
+export const Logout = styled.button`
+  border: none;
+  background: none;
   
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
+
+  font-size: 14px;
+  line-height: 18px;
+
+  position: absolute;
+  bottom: 38px;
+  right: 196px;
 `;

@@ -1,53 +1,54 @@
-import { Background, Container, Form, Div } from "./styles"
-import { useState } from "react"
-import { Input } from "../../Components/Input"
-import { Button } from "../../Components/Button"
-import { FiMail, FiLock } from 'react-icons/fi'
+import { useState } from 'react';
+import { FiMail, FiLock } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-export function SignIn(){
+import { useAuth } from '../../hooks/auth';
 
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 
-    function handleSignIn() {
-      console.log(name, email)
-    }
+import { Container, Form, Background } from "./styles";
 
-    return (
-        <Container>
-            <Form>
-                <Div>
-                <h1>RocketMovie</h1>
-                <p>Aplicação para acompanhar tudo que assistir.</p>
-                <h2>Faça seu login</h2>
-                </Div>
-                
-            <Input 
-            placeholder="E-mail"
-             type="text"
-             icon={FiMail}
-             onChange={e => setName(e.target.value)}
-               />
-            <Input
-             placeholder="Senha" 
-             type="password" 
-             icon={FiLock}
-             onChange={e => setEmail(e.target.value)}
-              />
+export function SignIn() {
+  const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
-           <Button
-            title="Entrar"
-            onClick={handleSignIn}
-            />
-           <Link 
-           to="Register">Criar conta
-           </Link>
+	const { signIn } = useAuth();
 
-            </Form>
+	function handleSignIn() {
+		signIn({ email, password });
+	}
 
-           <Background />
+  return (
+    <Container>
+      <Form>
+        <h1>RocketMovies</h1>
+        <p>Aplicação para acompanhar tudo que assistir.</p>
 
-        </Container>
-    )
+        <h2>Faça seu login</h2>
+
+        <Input 
+          placeholder="E-mail" 
+          type="text" 
+          icon={FiMail} 
+          onChange={e => setEmail(e.target.value)}
+        />
+
+        <Input 
+          placeholder="Senha" 
+          type="password" 
+          icon={FiLock} 
+          onChange={e => setPassword(e.target.value)}
+        />
+
+        <Button title="Entrar" onClick={handleSignIn} />
+
+        <Link to="/register">
+          Criar conta
+        </Link>
+      </Form>
+
+      <Background />
+    </Container>
+  );
 }

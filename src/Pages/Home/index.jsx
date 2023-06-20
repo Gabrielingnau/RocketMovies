@@ -1,101 +1,64 @@
-import { Container } from "./styles"
-import { Button } from "../../Components/Button"
-import { FiPlus, FiStar } from 'react-icons/fi'
-import { Header } from "../../Components/Header"
-import { Tag } from "../../Components/Tag";
-import { AiFillStar } from 'react-icons/ai' 
-import { Link } from "react-router-dom";
- 
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FiPlus } from "react-icons/fi";
+import { Container, Content, NewMovie } from "./styles";
 
-export function Home(){
+import { api } from '../../services/api';
 
-    return (
-        <Container>
-          <Header/>
-          <div>
-            <h1>Meus filmes</h1>
-            <Link to="CreateMovie">
-            <Button title="Adicionar filme" icon={FiPlus}/>           
-            </Link>
-          </div>
-          <main>
-            <Link to="MoviePreview">
-              <h1>Interestellar</h1>
-              <div className="imagem">
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <FiStar/>
-              </div>
-            <p> Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária 
-              em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, 
-              acredita que seu quarto está assombrado por um fantasma que tenta se...
-            </p>
-            <div className="Tag">
-              <Tag title="Ficção Científica"/>
-              <Tag title="Drama"/>
-              <Tag title="Família"/>
-            </div>
-            </Link>
-            <Link to="MoviePreview">
-              <h1>Interestellar</h1>
-              <div className="imagem">
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <FiStar/>
-              </div>
-            <p> Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária 
-              em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, 
-              acredita que seu quarto está assombrado por um fantasma que tenta se...
-            </p>
-            <div className="Tag">
-              <Tag title="Ficção Científica"/>
-              <Tag title="Drama"/>
-              <Tag title="Família"/>
-            </div>
-            </Link>
-            <Link to="MoviePreview">
-              <h1>Interestellar</h1>
-              <div className="imagem">
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <FiStar/>
-              </div>
-            <p> Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária 
-              em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, 
-              acredita que seu quarto está assombrado por um fantasma que tenta se...
-            </p>
-            <div className="Tag">
-              <Tag title="Ficção Científica"/>
-              <Tag title="Drama"/>
-              <Tag title="Família"/>
-            </div>
-            </Link>
-            <Link to="MoviePreview">
-              <h1>Interestellar</h1>
-              <div className="imagem">
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <FiStar/>
-              </div>
-            <p> Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária 
-              em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, 
-              acredita que seu quarto está assombrado por um fantasma que tenta se...
-            </p>
-            <div className="Tag">
-              <Tag title="Ficção Científica"/>
-              <Tag title="Drama"/>
-              <Tag title="Família"/>
-            </div>
-            </Link>
-          </main>
-        </Container>
-    )
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
+import { Movie } from "../../components/Movie";
+
+export function Home() {
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/notes?title=${search}`);
+      setMovies(response.data);
+    }
+
+    fetchMovies();
+  }, [search]);
+
+  return (
+    <Container>
+      <Header>
+        <Input 
+          placeholder="Pesquisar pelo título"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </Header>
+
+      <main>
+        <header>
+          <h1>Meus filmes</h1>
+
+          <NewMovie to="/new">
+            <FiPlus />
+            Adicionar filme
+          </NewMovie>
+        </header>
+
+        <Content>
+          {
+            movies.map(movie => (
+              <Movie 
+                key={String(movie.id)}
+                data={movie} 
+                onClick={() => handleDetails(movie.id)}
+              />
+            ))
+          }
+        </Content>
+      </main>
+    </Container>
+  );
 }
