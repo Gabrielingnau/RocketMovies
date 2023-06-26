@@ -5,9 +5,9 @@ import { Container, Content, NewMovie } from "./styles";
 
 import { api } from '../../services/api';
 
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { Movie } from "../../components/Movie";
+import { Header } from "../../Components/Header";
+import { Input } from "../../Components/Input";
+import { Movie } from "../../Components/Movie";
 
 export function Home() {
   const [movies, setMovies] = useState([]);

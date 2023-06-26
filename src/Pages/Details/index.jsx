@@ -10,12 +10,12 @@ import moment from 'moment-timezone';
 
 import { Container } from "./styles";
 
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { ButtonText } from "../../components/ButtonText";
-import { Rating } from "../../components/Rating";
-import { Tag } from "../../components/Tag";
-import { Button } from "../../components/Button";
+import { Header } from "../../Components/Header";
+import { Input } from "../../Components/Input";
+import { ButtonText } from "../../Components/ButtonText";
+import { Rating } from "../../Components/Rating";
+import { Tag } from "../../Components/Tag";
+import { Button } from "../../Components/Button";
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Details() {

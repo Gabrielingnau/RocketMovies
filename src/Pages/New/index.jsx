@@ -3,13 +3,13 @@ import { FiArrowLeft } from "react-icons/fi";
 
 import { useNavigate } from 'react-router-dom';
 
-import { ButtonText } from "../../components/ButtonText";
-import { Textarea } from "../../components/Textarea";
-import { MovieItem } from "../../components/MovieItem";
-import { Section } from "../../components/Section";
-import { Button } from "../../components/Button";
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
+import { ButtonText } from "../../Components/ButtonText";
+import { Textarea } from "../../Components/Textarea";
+import { MovieItem } from "../../Components/MovieItem";
+import { Section } from "../../Components/Section";
+import { Button } from "../../Components/Button";
+import { Header } from "../../Components/Header";
+import { Input } from "../../Components/Input";
 
 import { api } from '../../services/api';
 
