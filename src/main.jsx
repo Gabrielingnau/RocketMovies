@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { ThemeProvider } from 'styled-components';
-import GlobalStyles from './styles/global';
+import GlobalStyles from './Styles/global';
 
 import { AuthProvider } from './hooks/auth';
 
-import theme from './styles/theme';
+import theme from './Styles/theme';
 
 import { Routes } from './routes';
 
