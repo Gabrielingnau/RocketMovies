@@ -2,6 +2,10 @@
   <h4 align="center"><a href="https://listmovies333.netlify.app/">RocketMovies</a></h4>
 </p>
 
+<p align="center">
+  <img width="800" src="./src/assets/Capa (1).png">
+</p>
+
 ## 💻 About:
 
 The application developed is to create movies, where it is necessary to authenticate to enter the application through the login screen.
@@ -43,7 +47,7 @@ The user can create a new movie, and on the Home page see all the movies he has 
 The layout of the application is available in Figma:
 
 <a href="https://www.figma.com/file/0z6kH5auyeAAqLuzBlAOIB/RocketMovies-(Copy)?node-id=0%3A1&mode=dev">
-  <img alt="Made by tgmarinho" src="./src/assets/Capa (1).png">
+  <img alt="Made by tgmarinho" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
 
 ## 🚀 How to run the project.
