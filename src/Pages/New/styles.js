@@ -60,11 +60,6 @@ export const Form = styled.form`
   > div {
     display: flex;
     gap: 40px;
-
-    button:nth-child(1) {
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-      color: ${({ theme }) => theme.COLORS.PINK};
-    }
   }
   
   textarea {
