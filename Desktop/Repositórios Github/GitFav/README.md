@@ -56,12 +56,6 @@ git init
 
 git clone https://github.com/Gabrielingnau/GitFav
 
-#Then intade the dependencies with
-$ npm install
-
-#Then just run the project with
-$ npm run dev
-
 ```
 
 ## 🛠 Technologies
